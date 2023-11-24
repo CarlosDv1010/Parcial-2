@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { SerieModule } from './serie/serie.module';
+import { RestauranteModule } from './restaurante/restaurante.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +11,7 @@ import { SerieModule } from './serie/serie.module';
     imports: [
         BrowserModule,
         HttpClientModule,
-        SerieModule
+        RestauranteModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,0 +1,62 @@
+<style>
+  .puntuacion-container {
+      text-align: center;
+      color: #FFD700; 
+  }
+
+  .puntuacion-label {
+      font-weight: bold;
+  }
+
+  .rating {
+      font-size: 1.5em; 
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">País</th>
+            <th scope="col">Tipo de comida</th>
+            <th scope="col">Fundación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restaurante of restaurantes; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="show-card" (click)="mostrarDetalle(restaurante)">{{ restaurante.name }}</td>
+            <td>{{ restaurante.country }}</td>
+            <td>{{ restaurante.cuisine}}</td>
+            <td>{{ restaurante.opening_year}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>El restaurante con mejor puntuación es el {{ mejor_restaurante?.name }}  y tiene {{ mejor | number:'1.1-1' }} puntos</p>
+    </div>
+    <div class="col-12 col-lg-6">
+  <div id="details">
+    <div *ngFor="let restaurante of restaurantes">
+      <div class="card-container" *ngIf="restaurante.mostrarDetalle">
+        <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="{{restaurante.image}}" alt="{{restaurante.name}} picture">
+          <div class="card-body">
+            <h5 class="card-title">{{ restaurante.name }}</h5>
+            <p class="card-text">{{ restaurante.description }}</p>
+            <div class="puntuacion-container">
+              <p class="puntuacion-label">puntuación</p>
+              <p class="rating">{{ restaurante.rating | number:'1.1-1' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
